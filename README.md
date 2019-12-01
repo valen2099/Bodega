@@ -18,17 +18,17 @@ Proyecto de manejo de inventario en una Bodega
 * Imágenes ahora en Propiedad Zoom en lugar de Streched
 * Reparado el botón Guardar no se deshabilitaba después de Cancelar un ingreso.
 * Pequeños cambios en el diseño como ventana 
-	-Centrado 
-	-No resize y no maximizar.
-	-TextBox y botones deshabilitados hasta iniciar una acción.
+	- Centrado 
+	- No resize y no maximizar.
+	- TextBox y botones deshabilitados hasta iniciar una acción.
 
 ---- Cambios en Transacciones Egreso-----
 * Rebuild de la forma en general.
 * Agregado campos similares a los videos explicativos
-	-Botones agregar y quitar
-	-Textbox ID de la transacción, botón activo, combobox fecha
-	-Etiqueta ANULADO en caso el pedido sea cancelado
-	-Datagrid mejorado con combobox en los productos
+	- Botones agregar y quitar
+	- Textbox ID de la transacción, botón activo, combobox fecha
+	- Etiqueta ANULADO en caso el pedido sea cancelado
+	- Datagrid mejorado con combobox en los productos
 * Cambios en la apariencia
 	-Centrado 
 	-No resize y no maximizar.
