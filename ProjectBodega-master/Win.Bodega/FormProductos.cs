@@ -26,6 +26,25 @@ namespace Win.Bodega
 
             _Categorias = new CategoriasBL();
             listadeCategoriasBindingSource.DataSource = _Categorias.ObtenerCategorias();
+            
+        }
+        private static FormProductos m_FormDefInstance;
+        /// 
+        /// Crea una instancia unica del Formulario
+        /// 
+        /// Instancia por defecto
+        public static FormProductos DefInstance
+        {
+            get
+            {
+                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
+                    m_FormDefInstance = new FormProductos();
+                return m_FormDefInstance;
+            }
+            set
+            {
+                m_FormDefInstance = value;
+            }
         }
 
         private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -48,8 +67,10 @@ namespace Win.Bodega
             {
                 listaProductosBindingSource.ResetBindings(false);
                 DeshabilitarHabilitarBotones(true);
-                MessageBox.Show("Datos Guardados");
+                DeshabilitarHabilitarTextbox(false);
                 listaProductosBindingNavigatorSaveItem.Enabled = false;
+                
+                MessageBox.Show("Datos Guardados");
             }
             else
             {
@@ -65,20 +86,9 @@ namespace Win.Bodega
 
 
             DeshabilitarHabilitarBotones(false);
+            DeshabilitarHabilitarTextbox(true);
             listaProductosBindingNavigatorSaveItem.Enabled = true;
-        }
-
-        private void DeshabilitarHabilitarBotones(bool valor)
-        {
-            bindingNavigatorMoveFirstItem.Enabled = valor;
-            bindingNavigatorMoveLastItem.Enabled = valor;
-            bindingNavigatorMovePreviousItem.Enabled = valor;
-            bindingNavigatorMoveNextItem.Enabled = valor;
-            bindingNavigatorPositionItem.Enabled = valor;
-
-            bindingNavigatorAddNewItem.Enabled = valor;
-            bindingNavigatorDeleteItem.Enabled = valor;
-            toolStripButtonCancelar.Visible = !valor;//Antepuesto(negacion, si es V es F, y si es F es V)
+            
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -94,30 +104,26 @@ namespace Win.Bodega
             }
         }
 
-        private void Eliminar(int id)
-        {
-            var resultado = _productos.EliminarProducto(id);
-
-            if (resultado == true)
-            {
-                listaProductosBindingSource.ResetBindings(false);
-            }
-            else
-            {
-                MessageBox.Show("Ocurrio un error al eliminar el producto");
-            }
-        }
-
         private void toolStripButtonCancelar_Click(object sender, EventArgs e)
         {
             _productos.CancelarCambios();
             DeshabilitarHabilitarBotones(true);
+            DeshabilitarHabilitarTextbox(false);
 
+            listaProductosBindingNavigatorSaveItem.Enabled = false;
+            
         }
 
         private void FormProductos_Load(object sender, EventArgs e)
         {
             listaProductosBindingNavigatorSaveItem.Enabled = false;
+            DeshabilitarHabilitarTextbox(false);
+            //Boton editar deshabilitado si no hay productos, revisar si es posible un mejor codigo
+            if (listaProductosBindingSource.Current==null)
+            {
+                toolStripButtonEditar.Enabled = false;
+            }
+            //Que es esto?
             string ub;
             ub = bindingNavigatorPositionItem.Text;
             ubicacionTextBox.Text = ub;
@@ -127,7 +133,8 @@ namespace Win.Bodega
 
         private void button1_Click(object sender, EventArgs e)
         {
-           this.Close();
+            this.Close();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -146,17 +153,68 @@ namespace Win.Bodega
                     fotoPictureBox.Image = Image.FromStream(fileStream);
                 }
 
-            }
-            else
-            {
-                MessageBox.Show("Cree un producto antes de agregar una Imagen");
-            }
-
+            }   
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             fotoPictureBox.Image = null;
+        }
+
+        private void Eliminar(int id)
+        {
+            var resultado = _productos.EliminarProducto(id);
+
+            if (resultado == true)
+            {
+                listaProductosBindingSource.ResetBindings(false);
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al eliminar el producto");
+            }
+        }
+
+        //Funciones para habilitar o deshabilitar botones y textbox
+        private void DeshabilitarHabilitarBotones(bool valor)
+        {
+            bindingNavigatorMoveFirstItem.Enabled = valor;
+            bindingNavigatorMoveLastItem.Enabled = valor;
+            bindingNavigatorMovePreviousItem.Enabled = valor;
+            bindingNavigatorMoveNextItem.Enabled = valor;
+            bindingNavigatorPositionItem.Enabled = valor;
+            bindingNavigatorAddNewItem.Enabled = valor;
+            bindingNavigatorDeleteItem.Enabled = valor;
+            toolStripButtonEditar.Enabled = valor;
+            toolStripButtonCancelar.Visible = !valor;//Antepuesto(negacion, si es V es F, y si es F es V)
+        }
+        private void DeshabilitarHabilitarTextbox(bool valor)
+        {
+            categoriaIdComboBox.Enabled = valor;
+            descripcionTextBox.Enabled = valor;
+            precioTextBox.Enabled = valor;
+            existenciaTextBox.Enabled = valor;
+            ubicacionTextBox.Enabled = valor;
+            activoCheckBox.Enabled = valor;
+            button2.Enabled = valor;
+            button3.Enabled = valor;
+        }
+        
+        //El evento de "cerrar" la forma pasara por este metodo antes de ejecutarse       
+        private void cerrar(object sender, FormClosingEventArgs e)
+        {
+            var resultado = MessageBox.Show("Los cambios no guardados se perderán ¿Desea salir?", "Salir", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void toolStripButtonEditar_Click(object sender, EventArgs e)
+        {
+            DeshabilitarHabilitarBotones(false);
+            DeshabilitarHabilitarTextbox(true);
+            listaProductosBindingNavigatorSaveItem.Enabled = true;
         }
     }
 }

@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label activoLabel;
+            System.Windows.Forms.Label fechaLabel;
+            System.Windows.Forms.Label idLabel;
+            System.Windows.Forms.Label totalLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacciones));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.listaTransaccionesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.listaTransaccionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -46,62 +45,71 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.listaTransaccionesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCancelar = new System.Windows.Forms.ToolStripButton();
-            this.listaTransaccionesDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.activoCheckBox = new System.Windows.Forms.CheckBox();
+            this.fechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.totalTextBox = new System.Windows.Forms.TextBox();
+            this.transaccionDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transaccionDetalleDataGridView = new System.Windows.Forms.DataGridView();
+            this.Producto = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.listaProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.listaProductosDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            activoLabel = new System.Windows.Forms.Label();
+            fechaLabel = new System.Windows.Forms.Label();
+            idLabel = new System.Windows.Forms.Label();
+            totalLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaTransaccionesBindingNavigator)).BeginInit();
             this.listaTransaccionesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaTransaccionesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaTransaccionesDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaccionDetalleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaccionDetalleDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaProductosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // activoLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            activoLabel.AutoSize = true;
+            activoLabel.Location = new System.Drawing.Point(138, 49);
+            activoLabel.Name = "activoLabel";
+            activoLabel.Size = new System.Drawing.Size(40, 13);
+            activoLabel.TabIndex = 8;
+            activoLabel.Text = "Activo:";
             // 
-            // label1
+            // fechaLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Descripcin";
+            fechaLabel.AutoSize = true;
+            fechaLabel.Location = new System.Drawing.Point(19, 78);
+            fechaLabel.Name = "fechaLabel";
+            fechaLabel.Size = new System.Drawing.Size(40, 13);
+            fechaLabel.TabIndex = 12;
+            fechaLabel.Text = "Fecha:";
             // 
-            // button1
+            // idLabel
             // 
-            this.button1.Location = new System.Drawing.Point(246, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(19, 49);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.TabIndex = 14;
+            idLabel.Text = "Id:";
+            // 
+            // totalLabel
+            // 
+            totalLabel.AutoSize = true;
+            totalLabel.Location = new System.Drawing.Point(333, 411);
+            totalLabel.Name = "totalLabel";
+            totalLabel.Size = new System.Drawing.Size(75, 13);
+            totalLabel.TabIndex = 20;
+            totalLabel.Text = "Total Egresos:";
             // 
             // listaTransaccionesBindingNavigator
             // 
@@ -130,40 +138,21 @@
             this.listaTransaccionesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaTransaccionesBindingNavigator.Name = "listaTransaccionesBindingNavigator";
             this.listaTransaccionesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaTransaccionesBindingNavigator.Size = new System.Drawing.Size(830, 25);
+            this.listaTransaccionesBindingNavigator.Size = new System.Drawing.Size(656, 25);
             this.listaTransaccionesBindingNavigator.TabIndex = 3;
             this.listaTransaccionesBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // listaTransaccionesBindingSource
             // 
             this.listaTransaccionesBindingSource.DataSource = typeof(BL.Bodega.Transaccion);
+            this.listaTransaccionesBindingSource.CurrentChanged += new System.EventHandler(this.listaTransaccionesBindingSource_CurrentChanged);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -225,6 +214,26 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // listaTransaccionesBindingNavigatorSaveItem
             // 
             this.listaTransaccionesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -243,195 +252,173 @@
             this.toolStripButtonCancelar.Size = new System.Drawing.Size(57, 22);
             this.toolStripButtonCancelar.Text = "Cancelar";
             this.toolStripButtonCancelar.Visible = false;
+            this.toolStripButtonCancelar.Click += new System.EventHandler(this.toolStripButtonCancelar_Click);
             // 
-            // listaTransaccionesDataGridView1
+            // activoCheckBox
             // 
-            this.listaTransaccionesDataGridView1.AutoGenerateColumns = false;
-            this.listaTransaccionesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listaTransaccionesDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
-            this.listaTransaccionesDataGridView1.DataSource = this.listaTransaccionesBindingSource;
-            this.listaTransaccionesDataGridView1.Location = new System.Drawing.Point(46, 221);
-            this.listaTransaccionesDataGridView1.Name = "listaTransaccionesDataGridView1";
-            this.listaTransaccionesDataGridView1.Size = new System.Drawing.Size(743, 220);
-            this.listaTransaccionesDataGridView1.TabIndex = 5;
+            this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaTransaccionesBindingSource, "Activo", true));
+            this.activoCheckBox.Enabled = false;
+            this.activoCheckBox.Location = new System.Drawing.Point(184, 44);
+            this.activoCheckBox.Name = "activoCheckBox";
+            this.activoCheckBox.Size = new System.Drawing.Size(89, 24);
+            this.activoCheckBox.TabIndex = 9;
+            this.activoCheckBox.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn8
+            // fechaDateTimePicker
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.fechaDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.listaTransaccionesBindingSource, "Fecha", true));
+            this.fechaDateTimePicker.Location = new System.Drawing.Point(58, 74);
+            this.fechaDateTimePicker.Name = "fechaDateTimePicker";
+            this.fechaDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.fechaDateTimePicker.TabIndex = 13;
             // 
-            // dataGridViewTextBoxColumn9
+            // idTextBox
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Ubicacion";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Ubicacion";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaTransaccionesBindingSource, "Id", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "00000"));
+            this.idTextBox.Location = new System.Drawing.Point(58, 46);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(62, 20);
+            this.idTextBox.TabIndex = 15;
             // 
-            // dataGridViewTextBoxColumn10
+            // totalTextBox
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ProductoId";
-            this.dataGridViewTextBoxColumn10.HeaderText = "ProductoId";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.totalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaTransaccionesBindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
+            this.totalTextBox.Location = new System.Drawing.Point(432, 408);
+            this.totalTextBox.Name = "totalTextBox";
+            this.totalTextBox.ReadOnly = true;
+            this.totalTextBox.Size = new System.Drawing.Size(200, 20);
+            this.totalTextBox.TabIndex = 21;
+            this.totalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // dataGridViewTextBoxColumn11
+            // transaccionDetalleBindingSource
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Cantidad";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.transaccionDetalleBindingSource.DataMember = "TransaccionDetalle";
+            this.transaccionDetalleBindingSource.DataSource = this.listaTransaccionesBindingSource;
             // 
-            // dataGridViewTextBoxColumn12
+            // transaccionDetalleDataGridView
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "TipoTransaccion";
-            this.dataGridViewTextBoxColumn12.HeaderText = "TipoTransaccion";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.transaccionDetalleDataGridView.AllowUserToAddRows = false;
+            this.transaccionDetalleDataGridView.AllowUserToDeleteRows = false;
+            this.transaccionDetalleDataGridView.AutoGenerateColumns = false;
+            this.transaccionDetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transaccionDetalleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Producto,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.transaccionDetalleDataGridView.DataSource = this.transaccionDetalleBindingSource;
+            this.transaccionDetalleDataGridView.Location = new System.Drawing.Point(22, 162);
+            this.transaccionDetalleDataGridView.Name = "transaccionDetalleDataGridView";
+            this.transaccionDetalleDataGridView.Size = new System.Drawing.Size(610, 216);
+            this.transaccionDetalleDataGridView.TabIndex = 24;
+            this.transaccionDetalleDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.transaccionDetalleDataGridView_CellEndEdit);
+            this.transaccionDetalleDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.transaccionDetalleDataGridView_DataError);
             // 
-            // dataGridViewTextBoxColumn13
+            // Producto
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Fecha";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "DocumentoId";
-            this.dataGridViewTextBoxColumn14.HeaderText = "DocumentoId";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(344, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "UBICACIONES:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 205);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "EGRESOS:";
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Producto.DataPropertyName = "ProductoId";
+            this.Producto.DataSource = this.listaProductosBindingSource;
+            this.Producto.DisplayMember = "Descripcion";
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Producto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Producto.ValueMember = "Id";
             // 
             // listaProductosBindingSource
             // 
             this.listaProductosBindingSource.DataSource = typeof(BL.Bodega.Producto);
             // 
-            // listaProductosDataGridView
+            // dataGridViewTextBoxColumn7
             // 
-            this.listaProductosDataGridView.AutoGenerateColumns = false;
-            this.listaProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listaProductosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewImageColumn1,
-            this.dataGridViewCheckBoxColumn1});
-            this.listaProductosDataGridView.DataSource = this.listaProductosBindingSource;
-            this.listaProductosDataGridView.Location = new System.Drawing.Point(347, 57);
-            this.listaProductosDataGridView.Name = "listaProductosDataGridView";
-            this.listaProductosDataGridView.Size = new System.Drawing.Size(442, 98);
-            this.listaProductosDataGridView.TabIndex = 8;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Cantidad";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Cantidad";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn19
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Precio";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Precio";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn20
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Total";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
-            // dataGridViewTextBoxColumn6
+            // button2
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Ubicacion";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Ubicacion";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.button2.Location = new System.Drawing.Point(426, 114);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Añadir";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataGridViewTextBoxColumn15
+            // button3
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Precio";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.button3.Location = new System.Drawing.Point(529, 114);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Borrar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dataGridViewTextBoxColumn16
+            // label1
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Existencia";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Existencia";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "CategoriaId";
-            this.dataGridViewTextBoxColumn17.HeaderText = "CategoriaId";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Categoria";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Categoria";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "Foto";
-            this.dataGridViewImageColumn1.HeaderText = "Foto";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Activo";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Activo";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(416, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 42);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "ANULADO";
+            this.label1.Visible = false;
             // 
             // FormTransacciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 591);
-            this.Controls.Add(this.listaProductosDataGridView);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.listaTransaccionesDataGridView1);
-            this.Controls.Add(this.listaTransaccionesBindingNavigator);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.Color.Lavender;
+            this.ClientSize = new System.Drawing.Size(656, 456);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.transaccionDetalleDataGridView);
+            this.Controls.Add(activoLabel);
+            this.Controls.Add(this.activoCheckBox);
+            this.Controls.Add(fechaLabel);
+            this.Controls.Add(this.fechaDateTimePicker);
+            this.Controls.Add(idLabel);
+            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(totalLabel);
+            this.Controls.Add(this.totalTextBox);
+            this.Controls.Add(this.listaTransaccionesBindingNavigator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormTransacciones";
-            this.Text = "FormTransacciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Egresos";
+            this.Load += new System.EventHandler(this.FormTransacciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaTransaccionesBindingNavigator)).EndInit();
             this.listaTransaccionesBindingNavigator.ResumeLayout(false);
             this.listaTransaccionesBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaTransaccionesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaTransaccionesDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaccionDetalleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transaccionDetalleDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaProductosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource listaTransaccionesBindingSource;
         private System.Windows.Forms.BindingNavigator listaTransaccionesBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -446,27 +433,21 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton listaTransaccionesBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView listaTransaccionesDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource listaProductosBindingSource;
-        private System.Windows.Forms.DataGridView listaProductosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
+        private System.Windows.Forms.CheckBox activoCheckBox;
+        private System.Windows.Forms.DateTimePicker fechaDateTimePicker;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.TextBox totalTextBox;
+        private System.Windows.Forms.BindingSource transaccionDetalleBindingSource;
+        private System.Windows.Forms.DataGridView transaccionDetalleDataGridView;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -86,6 +86,13 @@ namespace BL.Bodega
             var resultado = new Resultado();
             resultado.Exitoso = true;
 
+            if (producto == null) 
+            {
+                resultado.Mensaje = "Agregue un producto valido";
+                resultado.Exitoso = false;
+                return resultado;
+            }
+
             if (string.IsNullOrEmpty(producto.Descripcion) == true)
             {
                 resultado.Mensaje = "Ingrese una descripcion";

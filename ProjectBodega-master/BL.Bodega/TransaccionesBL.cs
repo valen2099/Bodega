@@ -17,33 +17,46 @@ namespace BL.Bodega
         public TransaccionesBL()
         {
             _contexto = new Contexto();
-            ListaTransacciones = new BindingList<Transaccion>();
         }
 
         public BindingList<Transaccion> ObtenerTransacciones()
         {
-            _contexto.Transacciones.Load();
+            _contexto.Transacciones.Include("TransaccionDetalle").Load();
             ListaTransacciones = _contexto.Transacciones.Local.ToBindingList();
 
             return ListaTransacciones;
         }
-
-        public BindingList<Transaccion> ObtenerTransaccionesPorProductos(int ProductoId)
-        {
-            _contexto.Transacciones.Where(t => t.ProductoId == ProductoId).Load();
-            // var result = context.Table1.Where(c => c.UserCode == "123");
-            //ListaTransacciones = _contexto.Transacciones.Local.ToBindingList().Where(t => t.ProductoId == ProductoId);
-            //context.Employees.Where(e => e.IsActive).Load();
-            //this.DataContext = context.Employees.Local;
-
-            ListaTransacciones = _contexto.Transacciones.Local.ToBindingList();
-            return ListaTransacciones;
-        }
-
+        
         public void AgregarTransaccion()
         {
             var nuevaTransaccion = new Transaccion();
-            ListaTransacciones.Add(nuevaTransaccion);
+            ListaTransacciones.Add(nuevaTransaccion);//REVISAR PORQ NO CONTEXTO
+        }
+        
+        public void AgregarTransaccionDetalle(Transaccion transaccion)
+        {
+            if (transaccion != null)
+            {
+                var nuevoDetalle = new TransaccionDetalle();
+                transaccion.TransaccionDetalle.Add(nuevoDetalle);
+            }
+        }
+
+        public void RemoverTransaccionDetalle(Transaccion transaccion, TransaccionDetalle transaccionDetalle)
+        {
+            if (transaccion != null && transaccionDetalle != null)
+            {
+                transaccion.TransaccionDetalle.Remove(transaccionDetalle);
+            }
+        }
+
+        public void CancelarCambios()
+        {
+            foreach (var item in _contexto.ChangeTracker.Entries())
+            {
+                item.State = EntityState.Unchanged;
+                item.Reload();
+            }
         }
 
         public Resultado GuardarTransaccion(Transaccion transaccion)
@@ -56,50 +69,102 @@ namespace BL.Bodega
                 return resultado;
             }
 
+            CalcularExistenciaEgresos(transaccion);
             _contexto.SaveChanges();
 
             resultado.Exitoso = true;
             return resultado;
         }
 
-        public void ActualizarProducto(Producto producto)
+        public void CalcularExistenciaEgresos(Transaccion transaccion)
         {
-
-            var productoexistente = _contexto.Productos.Find(producto.Id);
-            productoexistente.Existencia = producto.Existencia;
-
-            _contexto.SaveChanges();
+            foreach (var detalle in transaccion.TransaccionDetalle)
+            {
+                var producto = _contexto.Productos.Find(detalle.ProductoId);
+                if (producto != null)
+                {
+                    if (transaccion.Activo == true) 
+                    {
+                        producto.Existencia = producto.Existencia - detalle.Cantidad;
+                    }
+                    else
+                    {
+                        producto.Existencia = producto.Existencia + detalle.Cantidad;
+                    }
+                    
+                }
+            }
         }
 
-        private Resultado Validar(Transaccion transaccion)
+       private Resultado Validar(Transaccion transaccion)
         {
             var resultado = new Resultado();
             resultado.Exitoso = true;
 
-            if (transaccion.ProductoId <= 0)
+            if (transaccion == null)
             {
-                resultado.Mensaje = "Ingrese un codigo de Producto Valido";
+                resultado.Mensaje = "Agregue una transaccion para poderla salvar";
+                resultado.Exitoso = false;
+
+                return resultado;
+            }
+
+            if (transaccion.Id != 0 && transaccion.Activo == true) 
+            {
+                resultado.Mensaje = "La transaccion ya fue emitida y no se pueden realizar cambios en ella";
                 resultado.Exitoso = false;
             }
 
-            if (transaccion.Cantidad <= 0)
+            if (transaccion.Activo == false)
             {
-                resultado.Mensaje = "La Cantidad debe ser mayor a Cero";
+                resultado.Mensaje = "La transaccion esta anulada no se pueden realizar cambios en ella";
                 resultado.Exitoso = false;
             }
 
-
+            if (transaccion.TransaccionDetalle.Count == 0) 
+            {
+                resultado.Mensaje = "Agregue productos a la factura";
+                resultado.Exitoso = false;
+            }
+            foreach (var detalle in transaccion.TransaccionDetalle)
+            {
+                if (detalle.ProductoId == 0) 
+                {
+                    resultado.Mensaje = "Seleccione productos validos";
+                    resultado.Exitoso = false;
+                }
+            }
+      
             return resultado;
         }
 
-
-        public bool EliminarTransaccion(int id)
+        public void CalcularFactura(Transaccion transaccion)
         {
-            foreach (var producto in ListaTransacciones)
+            if (transaccion != null)
             {
-                if (producto.Id == id)
+                double subtotal = 0;
+                foreach (var detalle in transaccion.TransaccionDetalle)
                 {
-                    ListaTransacciones.Remove(producto);
+                    var producto = _contexto.Productos.Find(detalle.ProductoId);
+                    if (producto != null)
+                    {
+                        detalle.Precio = producto.Precio;
+                        detalle.Total = detalle.Cantidad * producto.Precio;
+                        subtotal += detalle.Total;
+                    }
+                }
+                transaccion.Total = subtotal;
+            }
+        }
+
+        public bool AnularTransaccion(int id)
+        {
+            foreach (var transaccion in ListaTransacciones)
+            {
+                if (transaccion.Id == id)
+                {
+                    transaccion.Activo = false;
+                    CalcularExistenciaEgresos(transaccion);
                     _contexto.SaveChanges();
                     return true;
                 }
@@ -113,11 +178,34 @@ namespace BL.Bodega
     public class Transaccion
     {
         public int Id { get; set; }
-        public string Ubicacion { get; set; }
-        public int ProductoId { get; set; }
-        public int Cantidad { get; set; }
-        public int TipoTransaccion { get; set; } //1=Ingreso 2=Egreso 3=Movimiento Interno
+        //public string Ubicacion { get; set; }
+        //public int ProductoId { get; set; }
+        //public int Cantidad { get; set; }
+        //public int TipoTransaccion { get; set; } //1=Ingreso 2=Egreso 3=Movimiento Interno
+        public BindingList<TransaccionDetalle> TransaccionDetalle { get; set; }
         public DateTime Fecha { get; set; }
-        public int DocumentoId { get; set; } 
+        public double Total { get; set; }
+        public bool Activo { get; set; }
+        
+        public Transaccion()
+        {
+            Fecha = DateTime.Now;
+            TransaccionDetalle = new BindingList<TransaccionDetalle>();
+            Activo = true;
+        }
+    }
+    public class TransaccionDetalle
+    {
+        public int Id { get; set; }
+        public int ProductoId { get; set; }
+        public Producto Producto { get; set; }
+        public int Cantidad { get; set; }
+        public double Precio { get; set; }
+        public double Total { get; set; }
+
+        public TransaccionDetalle()
+        {
+            Cantidad = 1;
+        }
     }
 }

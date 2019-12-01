@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="DatosdeInicio.cs" />
+    <Compile Include="IngresBL.cs" />
     <Compile Include="ProductosBL.cs" />
     <Compile Include="SeguridadBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

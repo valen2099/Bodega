@@ -24,5 +24,6 @@ namespace BL.Bodega
         public DbSet<Seguridad> Usuarios { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Transaccion>  Transacciones{ get; set; }
+        public DbSet<Ingres> Ingress { get; set; }
     }
 }

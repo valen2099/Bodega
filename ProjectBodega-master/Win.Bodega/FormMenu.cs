@@ -33,9 +33,8 @@ namespace Win.Bodega
 
         private void consultaDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var formProducto = new FormProductos();
-            formProducto.MdiParent = this;
-            formProducto.Show();
+            FormProductos.DefInstance.MdiParent = this;
+            FormProductos.DefInstance.Show();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
@@ -50,9 +49,28 @@ namespace Win.Bodega
 
         private void salidasDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var formTransaccion = new FormTransacciones();
-            formTransaccion.MdiParent = this;
-            formTransaccion.Show();
+            FormTransacciones.DefInstance.MdiParent = this;
+            FormTransacciones.DefInstance.Show();
+        }
+
+        private void reportesDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formReporteProductos = new FormReporteProductos();
+            formReporteProductos.MdiParent = this;
+            formReporteProductos.Show();
+        }
+
+        private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormIngres.DefInstance.MdiParent = this;
+            FormIngres.DefInstance.Show();
+        }
+
+        private void reporteDeTransaccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formReporteTransacciones = new FormReporteTransacciones();
+            formReporteTransacciones.MdiParent = this;
+            formReporteTransacciones.Show();
         }
     }
 }

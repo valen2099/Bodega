@@ -13,23 +13,37 @@ namespace Win.Bodega
 {
     public partial class FormTransacciones : Form
     {
-        ProductosBL _productos;
         TransaccionesBL _transacciones;
-        Contexto _contexto;
+        ProductosBL _productos;
+        
         public FormTransacciones()
         {
             InitializeComponent();
-            _contexto = new Contexto();
-            _transacciones = new TransaccionesBL();
-            //listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
+
+           _transacciones = new TransaccionesBL();
             listaTransaccionesBindingSource.DataSource = _transacciones.ObtenerTransacciones();
+            _productos = new ProductosBL();
+            listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private static FormTransacciones m_FormDefInstance;
+        /// 
+        /// Crea una instancia unica del Formulario
+        /// 
+        /// Instancia por defecto
+        public static FormTransacciones DefInstance
         {
-            var productoNombre = (textBox1.Text);
-            _productos = new ProductosBL();
-            listaProductosBindingSource.DataSource = _productos.ObtenerProductosPorDescripcion(productoNombre);
+            get
+            {
+                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
+                    m_FormDefInstance = new FormTransacciones();
+                return m_FormDefInstance;
+            }
+            set
+            {
+                m_FormDefInstance = value;
+            }
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -38,7 +52,110 @@ namespace Win.Bodega
             listaTransaccionesBindingSource.MoveLast();
 
             DeshabilitarHabilitarBotones(false);
+            DeshabilitarHabilitarTextbox(true);
             listaTransaccionesBindingNavigatorSaveItem.Enabled = true;
+        }
+               
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (idTextBox.Text != "")
+            {
+                var resultado = MessageBox.Show("Desea anular esta transaccion?", "Anular", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    var id = Convert.ToInt32(idTextBox.Text);
+                    Anular(id);
+                }
+            }
+        }
+
+        private void Anular(int id)
+        {
+            var resultado = _transacciones.AnularTransaccion(id);
+            if (resultado == true)
+            {
+                listaTransaccionesBindingSource.ResetBindings(false);
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al anular la factura");
+            }
+        }
+
+        private void listaTransaccionesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            listaTransaccionesBindingSource.EndEdit();
+            var transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+
+            var resultado = _transacciones.GuardarTransaccion(transaccion);
+
+           if (resultado.Exitoso == true)
+            {
+                listaTransaccionesBindingSource.ResetBindings(false);//REVISAR DEBERIA SER LISTRANS
+                DeshabilitarHabilitarBotones(true);
+                DeshabilitarHabilitarTextbox(false);
+                MessageBox.Show("Datos Guardados");
+                listaTransaccionesBindingNavigatorSaveItem.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(resultado.Mensaje);
+            }
+        }
+
+        private void toolStripButtonCancelar_Click(object sender, EventArgs e)
+        {
+            DeshabilitarHabilitarBotones(true);
+            DeshabilitarHabilitarTextbox(false);
+            _transacciones.CancelarCambios();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+            _transacciones.AgregarTransaccionDetalle(Transaccion);
+            DeshabilitarHabilitarBotones(false);
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+            var TransaccionDetalle = (TransaccionDetalle)transaccionDetalleBindingSource.Current;
+            _transacciones.RemoverTransaccionDetalle(Transaccion, TransaccionDetalle);
+            DeshabilitarHabilitarBotones(false);
+        }
+
+        private void transaccionDetalleDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+        }
+
+        private void transaccionDetalleDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+            _transacciones.CalcularFactura(Transaccion);
+            listaTransaccionesBindingSource.ResetBindings(false);
+            DeshabilitarHabilitarBotones(false);
+        }
+
+        private void listaTransaccionesBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+            if (Transaccion != null && Transaccion.Id != 0 && Transaccion.Activo == false) 
+            {
+                label1.Visible = true;
+            }
+            else
+            {
+                label1.Visible = false;
+            }
+        }
+
+        private void FormTransacciones_Load(object sender, EventArgs e)
+        {
+            DeshabilitarHabilitarTextbox(false);
+            listaTransaccionesBindingNavigatorSaveItem.Enabled = false;
         }
 
         private void DeshabilitarHabilitarBotones(bool valor)
@@ -54,40 +171,12 @@ namespace Win.Bodega
             toolStripButtonCancelar.Visible = !valor;//Antepuesto(negacion, si es V es F, y si es F es V)
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        private void DeshabilitarHabilitarTextbox(bool valor)
         {
-       /*     if (idTextBox.Text != "")
-            {
-                var resultado = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
-                if (resultado == DialogResult.Yes)
-                {
-                    var id = Convert.ToInt32(idTextBox.Text);
-                    Eliminar(id);
-                }
-            }*/
-        }
-
-        private void listaTransaccionesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            listaTransaccionesBindingSource.EndEdit();
-            var transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
-
-            var resultado = _transacciones.GuardarTransaccion(transaccion);
-            var producto = _contexto.Productos.Find(transaccion.ProductoId);
-            producto.Existencia = producto.Existencia - transaccion.Cantidad;
-            _transacciones.ActualizarProducto(producto);
-
-            if (resultado.Exitoso == true)
-            {
-                listaProductosBindingSource.ResetBindings(false);
-                DeshabilitarHabilitarBotones(true);
-                MessageBox.Show("Datos Guardados");
-                listaTransaccionesBindingNavigatorSaveItem.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show(resultado.Mensaje);
-            }
+            button2.Enabled = valor;
+            button3.Enabled = valor;
+            transaccionDetalleDataGridView.ReadOnly = !valor;
+            fechaDateTimePicker.Enabled = valor;
         }
     }
 }
