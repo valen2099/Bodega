@@ -30,10 +30,10 @@ Proyecto de manejo de inventario en una Bodega
 	- Etiqueta ANULADO en caso el pedido sea cancelado
 	- Datagrid mejorado con combobox en los productos
 * Cambios en la apariencia
-	-Centrado 
-	-No resize y no maximizar.
-	-TextBox y botones deshabilitados hasta iniciar una acción.
-	-Datagrid Readonly hasta iniciar una acción.
+	- Centrado 
+	- No resize y no maximizar.
+	- TextBox y botones deshabilitados hasta iniciar una acción.
+	- Datagrid Readonly hasta iniciar una acción.
 	
 
 ---- Detalles a mejorar ------
