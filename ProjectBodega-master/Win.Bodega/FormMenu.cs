@@ -72,5 +72,12 @@ namespace Win.Bodega
             formReporteTransacciones.MdiParent = this;
             formReporteTransacciones.Show();
         }
+
+        private void reporteGraficoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formGrafico = new FormGrafico();
+            formGrafico.MdiParent = this;
+            formGrafico.Show();
+        }
     }
 }
