@@ -72,6 +72,8 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
             activoLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             existenciaLabel = new System.Windows.Forms.Label();
@@ -90,7 +92,7 @@
             // activoLabel
             // 
             activoLabel.AutoSize = true;
-            activoLabel.Location = new System.Drawing.Point(14, 219);
+            activoLabel.Location = new System.Drawing.Point(14, 217);
             activoLabel.Name = "activoLabel";
             activoLabel.Size = new System.Drawing.Size(40, 13);
             activoLabel.TabIndex = 1;
@@ -99,7 +101,7 @@
             // descripcionLabel
             // 
             descripcionLabel.AutoSize = true;
-            descripcionLabel.Location = new System.Drawing.Point(14, 113);
+            descripcionLabel.Location = new System.Drawing.Point(14, 111);
             descripcionLabel.Name = "descripcionLabel";
             descripcionLabel.Size = new System.Drawing.Size(66, 13);
             descripcionLabel.TabIndex = 3;
@@ -108,7 +110,7 @@
             // existenciaLabel
             // 
             existenciaLabel.AutoSize = true;
-            existenciaLabel.Location = new System.Drawing.Point(14, 165);
+            existenciaLabel.Location = new System.Drawing.Point(14, 163);
             existenciaLabel.Name = "existenciaLabel";
             existenciaLabel.Size = new System.Drawing.Size(58, 13);
             existenciaLabel.TabIndex = 5;
@@ -117,7 +119,7 @@
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(14, 48);
+            idLabel.Location = new System.Drawing.Point(14, 49);
             idLabel.Name = "idLabel";
             idLabel.Size = new System.Drawing.Size(19, 13);
             idLabel.TabIndex = 7;
@@ -126,7 +128,7 @@
             // precioLabel
             // 
             precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(14, 139);
+            precioLabel.Location = new System.Drawing.Point(14, 137);
             precioLabel.Name = "precioLabel";
             precioLabel.Size = new System.Drawing.Size(40, 13);
             precioLabel.TabIndex = 9;
@@ -135,7 +137,7 @@
             // categoriaIdLabel
             // 
             categoriaIdLabel.AutoSize = true;
-            categoriaIdLabel.Location = new System.Drawing.Point(13, 84);
+            categoriaIdLabel.Location = new System.Drawing.Point(13, 82);
             categoriaIdLabel.Name = "categoriaIdLabel";
             categoriaIdLabel.Size = new System.Drawing.Size(52, 13);
             categoriaIdLabel.TabIndex = 16;
@@ -144,7 +146,7 @@
             // ubicacionLabel
             // 
             ubicacionLabel.AutoSize = true;
-            ubicacionLabel.Location = new System.Drawing.Point(10, 191);
+            ubicacionLabel.Location = new System.Drawing.Point(10, 189);
             ubicacionLabel.Name = "ubicacionLabel";
             ubicacionLabel.Size = new System.Drawing.Size(58, 13);
             ubicacionLabel.TabIndex = 18;
@@ -178,7 +180,7 @@
             this.listaProductosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaProductosBindingNavigator.Name = "listaProductosBindingNavigator";
             this.listaProductosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaProductosBindingNavigator.Size = new System.Drawing.Size(656, 25);
+            this.listaProductosBindingNavigator.Size = new System.Drawing.Size(661, 25);
             this.listaProductosBindingNavigator.TabIndex = 0;
             this.listaProductosBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -302,16 +304,16 @@
             // activoCheckBox
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaProductosBindingSource, "Activo", true));
-            this.activoCheckBox.Location = new System.Drawing.Point(86, 214);
+            this.activoCheckBox.Location = new System.Drawing.Point(86, 212);
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.activoCheckBox.TabIndex = 2;
+            this.activoCheckBox.TabIndex = 8;
             this.activoCheckBox.UseVisualStyleBackColor = true;
             // 
             // descripcionTextBox
             // 
             this.descripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Descripcion", true));
-            this.descripcionTextBox.Location = new System.Drawing.Point(86, 110);
+            this.descripcionTextBox.Location = new System.Drawing.Point(86, 108);
             this.descripcionTextBox.Name = "descripcionTextBox";
             this.descripcionTextBox.Size = new System.Drawing.Size(159, 20);
             this.descripcionTextBox.TabIndex = 4;
@@ -319,7 +321,7 @@
             // existenciaTextBox
             // 
             this.existenciaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Existencia", true));
-            this.existenciaTextBox.Location = new System.Drawing.Point(86, 162);
+            this.existenciaTextBox.Location = new System.Drawing.Point(86, 160);
             this.existenciaTextBox.Name = "existenciaTextBox";
             this.existenciaTextBox.Size = new System.Drawing.Size(159, 20);
             this.existenciaTextBox.TabIndex = 6;
@@ -329,24 +331,24 @@
             this.idTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Id", true));
             this.idTextBox.Enabled = false;
-            this.idTextBox.Location = new System.Drawing.Point(86, 45);
+            this.idTextBox.Location = new System.Drawing.Point(86, 46);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
             this.idTextBox.Size = new System.Drawing.Size(159, 20);
-            this.idTextBox.TabIndex = 8;
+            this.idTextBox.TabIndex = 2;
             // 
             // precioTextBox
             // 
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Precio", true));
-            this.precioTextBox.Location = new System.Drawing.Point(86, 136);
+            this.precioTextBox.Location = new System.Drawing.Point(86, 134);
             this.precioTextBox.Name = "precioTextBox";
             this.precioTextBox.Size = new System.Drawing.Size(159, 20);
-            this.precioTextBox.TabIndex = 10;
+            this.precioTextBox.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(516, 469);
+            this.button1.Location = new System.Drawing.Point(524, 508);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 26);
             this.button1.TabIndex = 12;
@@ -356,21 +358,22 @@
             // 
             // fotoPictureBox
             // 
+            this.fotoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fotoPictureBox.BackColor = System.Drawing.Color.Silver;
             this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaProductosBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.fotoPictureBox.Location = new System.Drawing.Point(386, 45);
+            this.fotoPictureBox.Location = new System.Drawing.Point(386, 54);
             this.fotoPictureBox.Name = "fotoPictureBox";
-            this.fotoPictureBox.Size = new System.Drawing.Size(255, 173);
+            this.fotoPictureBox.Size = new System.Drawing.Size(263, 157);
             this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fotoPictureBox.TabIndex = 14;
             this.fotoPictureBox.TabStop = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(277, 45);
+            this.button2.Location = new System.Drawing.Point(274, 158);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 26);
-            this.button2.TabIndex = 15;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Agregar Foto";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -381,10 +384,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(277, 74);
+            this.button3.Location = new System.Drawing.Point(274, 187);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 26);
-            this.button3.TabIndex = 16;
+            this.button3.TabIndex = 10;
             this.button3.Text = "Remover Foto";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -400,19 +403,19 @@
             this.categoriaIdComboBox.DisplayMember = "Descripcion";
             this.categoriaIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoriaIdComboBox.FormattingEnabled = true;
-            this.categoriaIdComboBox.Location = new System.Drawing.Point(86, 81);
+            this.categoriaIdComboBox.Location = new System.Drawing.Point(86, 79);
             this.categoriaIdComboBox.Name = "categoriaIdComboBox";
             this.categoriaIdComboBox.Size = new System.Drawing.Size(159, 21);
-            this.categoriaIdComboBox.TabIndex = 17;
+            this.categoriaIdComboBox.TabIndex = 3;
             this.categoriaIdComboBox.ValueMember = "Id";
             // 
             // ubicacionTextBox
             // 
             this.ubicacionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProductosBindingSource, "Ubicacion", true));
-            this.ubicacionTextBox.Location = new System.Drawing.Point(86, 188);
+            this.ubicacionTextBox.Location = new System.Drawing.Point(86, 186);
             this.ubicacionTextBox.Name = "ubicacionTextBox";
             this.ubicacionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ubicacionTextBox.TabIndex = 19;
+            this.ubicacionTextBox.TabIndex = 7;
             // 
             // listaProductosDataGridView
             // 
@@ -421,6 +424,9 @@
             this.listaProductosDataGridView.AllowUserToOrderColumns = true;
             this.listaProductosDataGridView.AllowUserToResizeColumns = false;
             this.listaProductosDataGridView.AllowUserToResizeRows = false;
+            this.listaProductosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listaProductosDataGridView.AutoGenerateColumns = false;
             this.listaProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listaProductosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -434,8 +440,8 @@
             this.listaProductosDataGridView.Name = "listaProductosDataGridView";
             this.listaProductosDataGridView.ReadOnly = true;
             this.listaProductosDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.listaProductosDataGridView.Size = new System.Drawing.Size(627, 200);
-            this.listaProductosDataGridView.TabIndex = 19;
+            this.listaProductosDataGridView.Size = new System.Drawing.Size(636, 258);
+            this.listaProductosDataGridView.TabIndex = 11;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -449,12 +455,12 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
             this.dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 300;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -482,12 +488,35 @@
             this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn1.Width = 43;
             // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.buttonBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonBuscar.Location = new System.Drawing.Point(386, 26);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBuscar.TabIndex = 19;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = false;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.BackColor = System.Drawing.SystemColors.Info;
+            this.textBoxBuscar.Location = new System.Drawing.Point(467, 28);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(182, 20);
+            this.textBoxBuscar.TabIndex = 20;
+            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(656, 503);
+            this.ClientSize = new System.Drawing.Size(661, 546);
+            this.Controls.Add(this.textBoxBuscar);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.listaProductosDataGridView);
             this.Controls.Add(ubicacionLabel);
             this.Controls.Add(this.ubicacionTextBox);
@@ -509,10 +538,13 @@
             this.Controls.Add(this.precioTextBox);
             this.Controls.Add(this.listaProductosBindingNavigator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(677, 585);
             this.Name = "FormProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.cerrar);
             this.Load += new System.EventHandler(this.FormProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingNavigator)).EndInit();
@@ -564,5 +596,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.TextBox textBoxBuscar;
     }
 }

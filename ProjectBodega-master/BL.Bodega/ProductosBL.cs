@@ -29,12 +29,16 @@ namespace BL.Bodega
             return ListaProductos;
         }
 
-        public BindingList<Producto> ObtenerProductosPorDescripcion(string ProductoNombre)
+        public BindingList<Producto> ObtenerProductos(string buscar)
         {
-            _contexto.Productos.Where(p => p.Descripcion == ProductoNombre).Load();
+            var query = _contexto.Productos.
+                Where(p => p.Descripcion.ToLower()
+                .Contains(buscar.ToLower()) == true).ToList();
 
-            ListaProductos = _contexto.Productos.Local.ToBindingList();
-            return ListaProductos;
+            var resultado = new BindingList<Producto>(query);
+            
+	return resultado;
+
         }
 
         public void CancelarCambios()

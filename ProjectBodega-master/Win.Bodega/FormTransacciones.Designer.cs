@@ -401,6 +401,7 @@
             this.Controls.Add(this.totalTextBox);
             this.Controls.Add(this.listaTransaccionesBindingNavigator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormTransacciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

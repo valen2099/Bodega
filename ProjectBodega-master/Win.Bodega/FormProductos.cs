@@ -203,11 +203,15 @@ namespace Win.Bodega
         //El evento de "cerrar" la forma pasara por este metodo antes de ejecutarse       
         private void cerrar(object sender, FormClosingEventArgs e)
         {
-            var resultado = MessageBox.Show("Los cambios no guardados se perderán ¿Desea salir?", "Salir", MessageBoxButtons.YesNo);
-            if (resultado == DialogResult.No)
+            if (listaProductosBindingNavigatorSaveItem.Enabled == true)
             {
-                e.Cancel = true;
+                var resultado = MessageBox.Show("Los cambios no guardados se perderán ¿Desea salir?", "Salir", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
+            
         }
 
         private void toolStripButtonEditar_Click(object sender, EventArgs e)
@@ -215,6 +219,22 @@ namespace Win.Bodega
             DeshabilitarHabilitarBotones(false);
             DeshabilitarHabilitarTextbox(true);
             listaProductosBindingNavigatorSaveItem.Enabled = true;
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            var buscar = textBoxBuscar.Text;
+            if (string.IsNullOrEmpty(buscar) == true)
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
+            }
+            else
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos(buscar);
+            }
+
+
+            listaProductosBindingSource.ResetBindings(false);
         }
     }
 }

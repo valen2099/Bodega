@@ -22,7 +22,9 @@ namespace Win.Bodega
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pictureBox1.Show();
             Login();
+            pictureBox1.Hide();
         }
 
         private void Login()
@@ -40,6 +42,7 @@ namespace Win.Bodega
         private void FormMenu_Load(object sender, EventArgs e)
         {
             Login();
+            pictureBox1.Hide();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)

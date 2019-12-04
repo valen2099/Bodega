@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Win.Bodega.Resources {
+namespace Win.Bodega {
     
     
     /// <summary>
@@ -3409,7 +3409,7 @@ namespace Win.Bodega.Resources {
         }
     }
 }
-namespace Win.Bodega.Resources.DataSetTableAdapters {
+namespace Win.Bodega.DataSetTableAdapters {
     
     
     /// <summary>
