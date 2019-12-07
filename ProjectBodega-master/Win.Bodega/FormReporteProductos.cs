@@ -16,6 +16,16 @@ namespace Win.Bodega
         public FormReporteProductos()
         {
             InitializeComponent();
+            
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+            crystalReportViewer1.Hide();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
             var _productoBL = new ProductosBL();
             var bindingSource = new BindingSource();
             bindingSource.DataSource = _productoBL.ObtenerProductos();
@@ -24,6 +34,7 @@ namespace Win.Bodega
             reporte.SetDataSource(bindingSource);
             crystalReportViewer1.ReportSource = reporte;
             crystalReportViewer1.RefreshReport();
+            crystalReportViewer1.Show();
         }
     }
 }

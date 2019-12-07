@@ -28,25 +28,7 @@ namespace Win.Bodega
             listadeCategoriasBindingSource.DataSource = _Categorias.ObtenerCategorias();
             
         }
-        private static FormProductos m_FormDefInstance;
-        /// 
-        /// Crea una instancia unica del Formulario
-        /// 
-        /// Instancia por defecto
-        public static FormProductos DefInstance
-        {
-            get
-            {
-                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
-                    m_FormDefInstance = new FormProductos();
-                return m_FormDefInstance;
-            }
-            set
-            {
-                m_FormDefInstance = value;
-            }
-        }
-
+       
         private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             listaProductosBindingSource.EndEdit();
@@ -128,13 +110,6 @@ namespace Win.Bodega
             ub = bindingNavigatorPositionItem.Text;
             ubicacionTextBox.Text = ub;
  
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -200,19 +175,6 @@ namespace Win.Bodega
             button3.Enabled = valor;
         }
         
-        //El evento de "cerrar" la forma pasara por este metodo antes de ejecutarse       
-        private void cerrar(object sender, FormClosingEventArgs e)
-        {
-            if (listaProductosBindingNavigatorSaveItem.Enabled == true)
-            {
-                var resultado = MessageBox.Show("Los cambios no guardados se perderán ¿Desea salir?", "Salir", MessageBoxButtons.YesNo);
-                if (resultado == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-            
-        }
 
         private void toolStripButtonEditar_Click(object sender, EventArgs e)
         {
@@ -221,9 +183,9 @@ namespace Win.Bodega
             listaProductosBindingNavigatorSaveItem.Enabled = true;
         }
 
-        private void buttonBuscar_Click(object sender, EventArgs e)
+        private void metroTextBox1_TextChanged(object sender, EventArgs e)
         {
-            var buscar = textBoxBuscar.Text;
+            var buscar = metroTextBox1.Text;
             if (string.IsNullOrEmpty(buscar) == true)
             {
                 listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
@@ -232,8 +194,12 @@ namespace Win.Bodega
             {
                 listaProductosBindingSource.DataSource = _productos.ObtenerProductos(buscar);
             }
+        }
 
-
+        
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            listaProductosBindingSource.DataSource = _productos.ActualizarProductos();
             listaProductosBindingSource.ResetBindings(false);
         }
     }

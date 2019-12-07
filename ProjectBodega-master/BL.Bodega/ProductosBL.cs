@@ -37,7 +37,16 @@ namespace BL.Bodega
 
             var resultado = new BindingList<Producto>(query);
             
-	return resultado;
+	        return resultado;
+
+        }
+        public BindingList<Producto> ActualizarProductos()
+        {
+            var consulta = _contexto.Productos; 
+            ListaProductos = new BindingList<Producto>(consulta.ToList());
+
+            CancelarCambios();
+            return ListaProductos;
 
         }
 

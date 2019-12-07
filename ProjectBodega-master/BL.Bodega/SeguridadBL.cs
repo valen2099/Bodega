@@ -15,19 +15,19 @@ namespace BL.Bodega
         {
             _contexto = new Contexto();
         }
-        public bool Autorizar(string usuario, string contraseña)
+        public Seguridad Autorizar(string nombreUsuario, string contrasena)
         {
             var usuarios = _contexto.Usuarios.ToList();
 
             foreach (var usuarioDB in usuarios)
             {
-                if (usuario == usuarioDB.Nombre && contraseña == usuarioDB.Contrasena)
+                if (nombreUsuario == usuarioDB.Nombre && contrasena == usuarioDB.Contrasena)
                 {
-                    return true;
+                    return usuarioDB;
                 }
             }
             
-            return false;
+            return null;
         }
     }
 

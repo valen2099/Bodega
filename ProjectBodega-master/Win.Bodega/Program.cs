@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BL.Bodega;
 
 namespace Win.Bodega
 {
     static class Program
     {
+        public static Seguridad UsuarioLogueado;
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -18,7 +20,7 @@ namespace Win.Bodega
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
+            Application.Run(new MetroFormMain());
         }
 
         public static byte[] imageTobyteArray(Image imageIn)
@@ -27,5 +29,6 @@ namespace Win.Bodega
             imageIn.Save(ms, imageIn.RawFormat);
             return ms.ToArray();
         }
+        
     }
 }

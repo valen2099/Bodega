@@ -35,8 +35,7 @@ namespace Win.Bodega
 
         private void consultaDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormProductos.DefInstance.MdiParent = this;
-            FormProductos.DefInstance.Show();
+            
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
