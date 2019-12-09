@@ -27,6 +27,16 @@ namespace BL.Bodega
             return ListaIngress;
         }
 
+        public BindingList<Ingres> ObtenerIngresoFecha(DateTime fechaInicio, DateTime fechaFinal)
+        {
+            var consulta = _contexto.Ingress
+                .Where(r => r.Fecha >= fechaInicio && r.Fecha <= fechaFinal);
+
+            ListaIngress = new BindingList<Ingres>(consulta.ToList());
+
+            return ListaIngress;
+        }
+
         public void AgregarIngres()
         {
             var nuevaIngres = new Ingres();

@@ -147,6 +147,9 @@ namespace Win.Bodega
             MetroColor();
             metroTile7.Style = MetroFramework.MetroColorStyle.Green;
             metroTile7.Refresh();
+            var form = Application.OpenForms.OfType<FormReporteIngreso>().FirstOrDefault();
+            FormReporteIngreso hijo = form ?? new FormReporteIngreso();
+            AddFormInPanel(hijo);
         }
 
         private void metroPanel4_Click(object sender, EventArgs e)

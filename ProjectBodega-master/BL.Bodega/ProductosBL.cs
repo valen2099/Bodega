@@ -40,6 +40,19 @@ namespace BL.Bodega
 	        return resultado;
 
         }
+
+        public BindingList<Producto> ObtenerProductosP(string tipoProducto)
+        {
+            var query = _contexto.Productos.
+                Where(p => p.Descripcion.ToLower()
+                .Contains(tipoProducto.ToLower()) == true).ToList();
+
+            var resultado = new BindingList<Producto>(query);
+
+            return resultado;
+
+        }
+
         public BindingList<Producto> ActualizarProductos()
         {
             var consulta = _contexto.Productos; 

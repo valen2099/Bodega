@@ -79,6 +79,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetIngreso.cs">
+      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetIngreso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormGrafico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +122,12 @@
     </Compile>
     <Compile Include="FormProductos.Designer.cs">
       <DependentUpon>FormProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteIngreso.Designer.cs">
+      <DependentUpon>FormReporteIngreso.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReporteProductos.cs">
       <SubType>Form</SubType>
@@ -153,6 +167,12 @@
       <DependentUpon>ReporteFacturas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ReporteInfreso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteInfreso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReporteProducto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -176,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteIngreso.resx">
+      <DependentUpon>FormReporteIngreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReporteProductos.resx">
       <DependentUpon>FormReporteProductos.cs</DependentUpon>
@@ -207,6 +230,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteFacturas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteInfreso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteInfreso.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteProducto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteProducto.cs</LastGenOutput>
@@ -221,6 +248,17 @@
     </None>
     <None Include="DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetIngreso.xsc">
+      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetIngreso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetIngreso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetIngreso.xss">
+      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BL.Bodega.CategoriasBL.datasource" />

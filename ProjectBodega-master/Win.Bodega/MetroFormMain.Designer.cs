@@ -43,8 +43,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.LabelUsuario = new MetroFramework.Controls.MetroLabel();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel3.SuspendLayout();
@@ -281,6 +281,18 @@
             this.metroPanel4.VerticalScrollbarSize = 10;
             this.metroPanel4.Click += new System.EventHandler(this.metroPanel4_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.label1.Location = new System.Drawing.Point(60, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 37);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Bodega";
+            this.label1.Click += new System.EventHandler(this.metroPanel4_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -292,18 +304,6 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.metroPanel4_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Buchanan Expanded Italic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.label1.Location = new System.Drawing.Point(60, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 32);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Bodega";
-            this.label1.Click += new System.EventHandler(this.metroPanel4_Click);
             // 
             // MetroFormMain
             // 

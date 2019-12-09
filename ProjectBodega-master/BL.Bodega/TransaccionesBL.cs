@@ -26,7 +26,17 @@ namespace BL.Bodega
 
             return ListaTransacciones;
         }
-        
+
+        public BindingList<Transaccion> ObtenerTransacciones(DateTime fechaInicio, DateTime fechaFinal)
+        {
+            var consulta = _contexto.Transacciones
+                .Where(r => r.Fecha >= fechaInicio && r.Fecha <= fechaFinal);
+
+            ListaTransacciones = new BindingList<Transaccion>(consulta.ToList());
+
+            return ListaTransacciones;
+        }
+
         public void AgregarTransaccion()
         {
             var nuevaTransaccion = new Transaccion();
@@ -177,6 +187,8 @@ namespace BL.Bodega
 
     public class Transaccion
     {
+        internal DateTime OrderDate;
+
         public int Id { get; set; }
         //public string Ubicacion { get; set; }
         //public int ProductoId { get; set; }
