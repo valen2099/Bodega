@@ -60,9 +60,7 @@
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.precioTextBox = new System.Windows.Forms.TextBox();
             this.fotoPictureBox = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button3 = new System.Windows.Forms.Button();
             this.listadeCategoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaIdComboBox = new System.Windows.Forms.ComboBox();
             this.ubicacionTextBox = new System.Windows.Forms.TextBox();
@@ -73,6 +71,8 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             activoLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             existenciaLabel = new System.Windows.Forms.Label();
@@ -265,8 +265,8 @@
             this.bindingNavigatorAddNewItem.Image = global::Win.Bodega.Properties.Resources._074;
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(105, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(114, 22);
+            this.bindingNavigatorAddNewItem.Text = "Nuevo Producto";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorDeleteItem
@@ -294,8 +294,8 @@
             this.listaProductosBindingNavigatorSaveItem.ForeColor = System.Drawing.Color.White;
             this.listaProductosBindingNavigatorSaveItem.Image = global::Win.Bodega.Properties.Resources._044;
             this.listaProductosBindingNavigatorSaveItem.Name = "listaProductosBindingNavigatorSaveItem";
-            this.listaProductosBindingNavigatorSaveItem.Size = new System.Drawing.Size(101, 22);
-            this.listaProductosBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.listaProductosBindingNavigatorSaveItem.Size = new System.Drawing.Size(69, 22);
+            this.listaProductosBindingNavigatorSaveItem.Text = "Guardar";
             this.listaProductosBindingNavigatorSaveItem.Click += new System.EventHandler(this.listaProductosBindingNavigatorSaveItem_Click);
             // 
             // toolStripButton1
@@ -310,7 +310,7 @@
             // 
             // toolStripButtonCancelar
             // 
-            this.toolStripButtonCancelar.BackColor = System.Drawing.Color.OrangeRed;
+            this.toolStripButtonCancelar.BackColor = System.Drawing.Color.Tomato;
             this.toolStripButtonCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonCancelar.ForeColor = System.Drawing.Color.White;
             this.toolStripButtonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCancelar.Image")));
@@ -377,31 +377,9 @@
             this.fotoPictureBox.TabIndex = 14;
             this.fotoPictureBox.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(389, 249);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 26);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Agregar Foto";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.Filter = "jpg, png | *.jpn;*.png";
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(574, 249);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 26);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Remover Foto";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // listadeCategoriasBindingSource
             // 
@@ -536,20 +514,46 @@
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.metroTextBox1.TextChanged += new System.EventHandler(this.metroTextBox1_TextChanged);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton1.Location = new System.Drawing.Point(389, 252);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(102, 23);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton1.TabIndex = 22;
+            this.metroButton1.Text = "Agregar Foto";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton2.Location = new System.Drawing.Point(575, 252);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(102, 23);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton2.TabIndex = 23;
+            this.metroButton2.Text = "Remover Foto";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.UseStyleColors = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(689, 585);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox1);
             this.Controls.Add(this.listaProductosDataGridView);
             this.Controls.Add(ubicacionLabel);
             this.Controls.Add(this.ubicacionTextBox);
             this.Controls.Add(categoriaIdLabel);
             this.Controls.Add(this.categoriaIdComboBox);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.fotoPictureBox);
             this.Controls.Add(activoLabel);
             this.Controls.Add(this.activoCheckBox);
@@ -564,9 +568,8 @@
             this.Controls.Add(this.listaProductosBindingNavigator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(677, 585);
             this.Name = "FormProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormProductos_Load);
@@ -605,9 +608,7 @@
         private System.Windows.Forms.TextBox precioTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
         private System.Windows.Forms.PictureBox fotoPictureBox;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.BindingSource listadeCategoriasBindingSource;
         private System.Windows.Forms.ComboBox categoriaIdComboBox;
         private System.Windows.Forms.TextBox ubicacionTextBox;
@@ -620,5 +621,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }

@@ -60,9 +60,9 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             activoLabel = new System.Windows.Forms.Label();
             fechaLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@
             // fechaLabel
             // 
             fechaLabel.AutoSize = true;
-            fechaLabel.Location = new System.Drawing.Point(19, 78);
+            fechaLabel.Location = new System.Drawing.Point(19, 136);
             fechaLabel.Name = "fechaLabel";
             fechaLabel.Size = new System.Drawing.Size(40, 13);
             fechaLabel.TabIndex = 5;
@@ -104,8 +104,9 @@
             // 
             // totalLabel
             // 
+            totalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             totalLabel.AutoSize = true;
-            totalLabel.Location = new System.Drawing.Point(333, 411);
+            totalLabel.Location = new System.Drawing.Point(378, 556);
             totalLabel.Name = "totalLabel";
             totalLabel.Size = new System.Drawing.Size(77, 13);
             totalLabel.TabIndex = 13;
@@ -119,9 +120,11 @@
             // listaIngressBindingNavigator
             // 
             this.listaIngressBindingNavigator.AddNewItem = null;
+            this.listaIngressBindingNavigator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             this.listaIngressBindingNavigator.BindingSource = this.listaIngressBindingSource;
             this.listaIngressBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.listaIngressBindingNavigator.DeleteItem = null;
+            this.listaIngressBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.listaIngressBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -143,21 +146,23 @@
             this.listaIngressBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaIngressBindingNavigator.Name = "listaIngressBindingNavigator";
             this.listaIngressBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaIngressBindingNavigator.Size = new System.Drawing.Size(656, 25);
+            this.listaIngressBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.listaIngressBindingNavigator.Size = new System.Drawing.Size(689, 25);
             this.listaIngressBindingNavigator.TabIndex = 0;
             this.listaIngressBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
+            this.bindingNavigatorCountItem.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Image = global::Win.Bodega.Properties.Resources._153new;
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
@@ -166,7 +171,7 @@
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Image = global::Win.Bodega.Properties.Resources._155new;
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
@@ -194,7 +199,7 @@
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Image = global::Win.Bodega.Properties.Resources._156new;
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
@@ -203,7 +208,7 @@
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Image = global::Win.Bodega.Properties.Resources._154new;
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
@@ -216,36 +221,38 @@
             // 
             // bindingNavigatorAddNewItem
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bindingNavigatorAddNewItem.Image = global::Win.Bodega.Properties.Resources._074;
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(104, 22);
+            this.bindingNavigatorAddNewItem.Text = "Nuevo Ingreso";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorDeleteItem
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bindingNavigatorDeleteItem.Image = global::Win.Bodega.Properties.Resources._038;
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(62, 22);
             this.bindingNavigatorDeleteItem.Text = "Anular";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // listaIngressBindingNavigatorSaveItem
             // 
-            this.listaIngressBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.listaIngressBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("listaIngressBindingNavigatorSaveItem.Image")));
+            this.listaIngressBindingNavigatorSaveItem.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.listaIngressBindingNavigatorSaveItem.Image = global::Win.Bodega.Properties.Resources._044;
             this.listaIngressBindingNavigatorSaveItem.Name = "listaIngressBindingNavigatorSaveItem";
-            this.listaIngressBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.listaIngressBindingNavigatorSaveItem.Text = "Save Data";
+            this.listaIngressBindingNavigatorSaveItem.Size = new System.Drawing.Size(69, 22);
+            this.listaIngressBindingNavigatorSaveItem.Text = "Guardar";
             this.listaIngressBindingNavigatorSaveItem.Click += new System.EventHandler(this.listaIngressBindingNavigatorSaveItem_Click);
             // 
             // toolStripButtonCancelar
             // 
+            this.toolStripButtonCancelar.BackColor = System.Drawing.Color.Tomato;
             this.toolStripButtonCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonCancelar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.toolStripButtonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCancelar.Image")));
             this.toolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCancelar.Name = "toolStripButtonCancelar";
@@ -258,7 +265,7 @@
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaIngressBindingSource, "Activo", true));
             this.activoCheckBox.Enabled = false;
-            this.activoCheckBox.Location = new System.Drawing.Point(209, 45);
+            this.activoCheckBox.Location = new System.Drawing.Point(184, 44);
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(32, 24);
             this.activoCheckBox.TabIndex = 2;
@@ -267,7 +274,7 @@
             // fechaDateTimePicker
             // 
             this.fechaDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.listaIngressBindingSource, "Fecha", true));
-            this.fechaDateTimePicker.Location = new System.Drawing.Point(58, 74);
+            this.fechaDateTimePicker.Location = new System.Drawing.Point(64, 132);
             this.fechaDateTimePicker.Name = "fechaDateTimePicker";
             this.fechaDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.fechaDateTimePicker.TabIndex = 6;
@@ -283,8 +290,9 @@
             // 
             // totalTextBox
             // 
+            this.totalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.totalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaIngressBindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N2"));
-            this.totalTextBox.Location = new System.Drawing.Point(432, 408);
+            this.totalTextBox.Location = new System.Drawing.Point(477, 553);
             this.totalTextBox.Name = "totalTextBox";
             this.totalTextBox.ReadOnly = true;
             this.totalTextBox.Size = new System.Drawing.Size(200, 20);
@@ -303,7 +311,11 @@
             // 
             // ingresDetalleDataGridView
             // 
+            this.ingresDetalleDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ingresDetalleDataGridView.AutoGenerateColumns = false;
+            this.ingresDetalleDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.ingresDetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ingresDetalleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
@@ -311,9 +323,9 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.ingresDetalleDataGridView.DataSource = this.ingresDetalleBindingSource;
-            this.ingresDetalleDataGridView.Location = new System.Drawing.Point(22, 162);
+            this.ingresDetalleDataGridView.Location = new System.Drawing.Point(12, 162);
             this.ingresDetalleDataGridView.Name = "ingresDetalleDataGridView";
-            this.ingresDetalleDataGridView.Size = new System.Drawing.Size(610, 216);
+            this.ingresDetalleDataGridView.Size = new System.Drawing.Size(665, 385);
             this.ingresDetalleDataGridView.TabIndex = 14;
             this.ingresDetalleDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ingresDetalleDataGridView_CellEndEdit);
             this.ingresDetalleDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.ingresDetalleDataGridView_DataError);
@@ -348,47 +360,54 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Total";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(426, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Añadir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(529, 114);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(416, 34);
+            this.label1.Location = new System.Drawing.Point(484, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 42);
             this.label1.TabIndex = 28;
             this.label1.Text = "ANULADO";
             this.label1.Visible = false;
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton2.Location = new System.Drawing.Point(575, 126);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(102, 23);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton2.TabIndex = 31;
+            this.metroButton2.Text = "Quitar Producto";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.UseStyleColors = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton1.Location = new System.Drawing.Point(389, 126);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(102, 23);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton1.TabIndex = 30;
+            this.metroButton1.Text = "Añadir Producto";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // FormIngres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(656, 456);
+            this.ClientSize = new System.Drawing.Size(689, 585);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ingresDetalleDataGridView);
             this.Controls.Add(activoLabel);
             this.Controls.Add(this.activoCheckBox);
@@ -399,11 +418,12 @@
             this.Controls.Add(totalLabel);
             this.Controls.Add(this.totalTextBox);
             this.Controls.Add(this.listaIngressBindingNavigator);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormIngres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
+            this.Load += new System.EventHandler(this.FormIngres_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaIngressBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaIngressBindingNavigator)).EndInit();
             this.listaIngressBindingNavigator.ResumeLayout(false);
@@ -440,12 +460,12 @@
         private System.Windows.Forms.BindingSource ingresDetalleBindingSource;
         private System.Windows.Forms.DataGridView ingresDetalleDataGridView;
         private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

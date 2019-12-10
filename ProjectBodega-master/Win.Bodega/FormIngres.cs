@@ -25,26 +25,7 @@ namespace Win.Bodega
             _productosBL = new ProductosBL();
             listaProductosBindingSource.DataSource = _productosBL.ObtenerProductos();
         }
-        
-        private static FormIngres m_FormDefInstance;
-        /// 
-        /// Crea una instancia unica del Formulario
-        /// 
-        /// Instancia por defecto
-        public static FormIngres DefInstance
-        {
-            get
-            {
-                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
-                    m_FormDefInstance = new FormIngres();
-                return m_FormDefInstance;
-            }
-            set
-            {
-                m_FormDefInstance = value;
-            }
-        }
-
+       
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             _ingresBL.AgregarIngres();
@@ -91,8 +72,8 @@ namespace Win.Bodega
 
         private void DeshabilitarHabilitarTextbox(bool valor)
         {
-            button1.Enabled = valor;
-            button2.Enabled = valor;
+            metroButton1.Enabled = valor;
+            metroButton2.Enabled = valor;
             ingresDetalleDataGridView.ReadOnly = !valor;
             fechaDateTimePicker.Enabled = valor;
         }
@@ -103,22 +84,7 @@ namespace Win.Bodega
             DeshabilitarHabilitarTextbox(false);
             _ingresBL.CancelarCambios();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var Ingres = (Ingres)listaIngressBindingSource.Current;
-            _ingresBL.AgregarIngresDetalle(Ingres);
-            DeshabilitarHabilitarBotones(false);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var Ingres = (Ingres)listaIngressBindingSource.Current;
-            var IngresDetalle = (IngresDetalle)ingresDetalleBindingSource.Current;
-            _ingresBL.RemoverIngresDetalle(Ingres, IngresDetalle);
-            DeshabilitarHabilitarBotones(false);
-        }
-
+        
         private void ingresDetalleDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
@@ -136,7 +102,7 @@ namespace Win.Bodega
         {
             if (idTextBox.Text != "")
             {
-                var resultado = MessageBox.Show("Desea anular esta transaccion?", "Anular", MessageBoxButtons.YesNo);
+                var resultado = MessageBox.Show("Desea anular esta transaccion?", "Anular", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
                     var id = Convert.ToInt32(idTextBox.Text);
@@ -168,6 +134,27 @@ namespace Win.Bodega
             {
                 label1.Visible = false;
             }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            var Ingres = (Ingres)listaIngressBindingSource.Current;
+            _ingresBL.AgregarIngresDetalle(Ingres);
+            DeshabilitarHabilitarBotones(false);
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            var Ingres = (Ingres)listaIngressBindingSource.Current;
+            var IngresDetalle = (IngresDetalle)ingresDetalleBindingSource.Current;
+            _ingresBL.RemoverIngresDetalle(Ingres, IngresDetalle);
+            DeshabilitarHabilitarBotones(false);
+        }
+
+        private void FormIngres_Load(object sender, EventArgs e)
+        {
+            DeshabilitarHabilitarTextbox(false);
+            listaIngressBindingNavigatorSaveItem.Enabled = false;
         }
     }
 }

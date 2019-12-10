@@ -26,26 +26,7 @@ namespace Win.Bodega
             listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
             
         }
-
-        private static FormTransacciones m_FormDefInstance;
-        /// 
-        /// Crea una instancia unica del Formulario
-        /// 
-        /// Instancia por defecto
-        public static FormTransacciones DefInstance
-        {
-            get
-            {
-                if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
-                    m_FormDefInstance = new FormTransacciones();
-                return m_FormDefInstance;
-            }
-            set
-            {
-                m_FormDefInstance = value;
-            }
-        }
-
+        
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             _transacciones.AgregarTransaccion();
@@ -60,7 +41,7 @@ namespace Win.Bodega
         {
             if (idTextBox.Text != "")
             {
-                var resultado = MessageBox.Show("Desea anular esta transaccion?", "Anular", MessageBoxButtons.YesNo);
+                var resultado = MetroFramework.MetroMessageBox.Show(this,"Desea anular esta transaccion?", "Anular", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
                     var id = Convert.ToInt32(idTextBox.Text);
@@ -109,23 +90,7 @@ namespace Win.Bodega
             DeshabilitarHabilitarTextbox(false);
             _transacciones.CancelarCambios();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
-            _transacciones.AgregarTransaccionDetalle(Transaccion);
-            DeshabilitarHabilitarBotones(false);
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
-            var TransaccionDetalle = (TransaccionDetalle)transaccionDetalleBindingSource.Current;
-            _transacciones.RemoverTransaccionDetalle(Transaccion, TransaccionDetalle);
-            DeshabilitarHabilitarBotones(false);
-        }
-
+        
         private void transaccionDetalleDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
@@ -173,10 +138,25 @@ namespace Win.Bodega
 
         private void DeshabilitarHabilitarTextbox(bool valor)
         {
-            button2.Enabled = valor;
-            button3.Enabled = valor;
+            metroButton1.Enabled = valor;
+            metroButton2.Enabled = valor;
             transaccionDetalleDataGridView.ReadOnly = !valor;
             fechaDateTimePicker.Enabled = valor;
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+            _transacciones.AgregarTransaccionDetalle(Transaccion);
+            DeshabilitarHabilitarBotones(false);
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            var Transaccion = (Transaccion)listaTransaccionesBindingSource.Current;
+            var TransaccionDetalle = (TransaccionDetalle)transaccionDetalleBindingSource.Current;
+            _transacciones.RemoverTransaccionDetalle(Transaccion, TransaccionDetalle);
+            DeshabilitarHabilitarBotones(false);
         }
     }
 }

@@ -19,11 +19,6 @@ namespace Win.Bodega
             
         }
 
-        private void crystalReportViewer1_Load(object sender, EventArgs e)
-        {
-            crystalReportViewer1.Hide();
-        }
-
         private void metroButton1_Click(object sender, EventArgs e)
         {
             var _productoBL = new ProductosBL();
@@ -48,10 +43,5 @@ namespace Win.Bodega
             crystalReportViewer1.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-   
-            
-        }
     }
 }

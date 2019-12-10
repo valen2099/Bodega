@@ -79,14 +79,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSetIngreso.cs">
-      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetIngreso.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FormGrafico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +102,6 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProductos.cs">
       <SubType>Form</SubType>
@@ -191,9 +177,6 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,17 +231,6 @@
     </None>
     <None Include="DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetIngreso.xsc">
-      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetIngreso.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetIngreso.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSetIngreso.xss">
-      <DependentUpon>DataSetIngreso.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BL.Bodega.CategoriasBL.datasource" />
@@ -363,6 +335,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\038.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

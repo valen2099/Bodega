@@ -10,13 +10,14 @@ namespace BL.Bodega
 {
     public class Contexto: DbContext
     {
-        public Contexto():base("ProductosBodega")
+        public Contexto():base("Data Source=yourfunnypics.db.4232052.hostedresource.com; Initial Catalog=yourfunnypics; User ID=yourfunnypics; Password='Temp%123';")
         {
 
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.HasDefaultSchema("BodegaV");
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             Database.SetInitializer(new DatosdeInicio());
         }

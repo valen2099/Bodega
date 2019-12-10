@@ -20,19 +20,7 @@ namespace Win.Bodega
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var _IngresosBL = new IngresBL();
-            var bindingSource = new BindingSource();
-            bindingSource.DataSource = _IngresosBL.ObtenerIngress();
-
-            var reporte = new ReporteInfreso();
-            reporte.SetDataSource(bindingSource);
-            crystalReportViewer1.ReportSource = reporte;
-            crystalReportViewer1.RefreshReport();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
         {
             var fechaInicio = dateTimePicker1.Value;
             var fechaFinal = dateTimePicker2.Value;
@@ -48,6 +36,19 @@ namespace Win.Bodega
             var reporte = new ReporteInfreso();
             reporte.SetDataSource(bindingSource);
 
+            crystalReportViewer1.ReportSource = reporte;
+            crystalReportViewer1.RefreshReport();
+            
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            var _IngresosBL = new IngresBL();
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = _IngresosBL.ObtenerIngress();
+
+            var reporte = new ReporteInfreso();
+            reporte.SetDataSource(bindingSource);
             crystalReportViewer1.ReportSource = reporte;
             crystalReportViewer1.RefreshReport();
         }

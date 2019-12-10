@@ -77,7 +77,7 @@ namespace Win.Bodega
         {
             if (idTextBox.Text != "")
             {
-                var resultado = MessageBox.Show("Desea eliminar este registro?", "Elinimar", MessageBoxButtons.YesNo);
+                var resultado = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
                     var id = Convert.ToInt32(idTextBox.Text);
@@ -110,30 +110,6 @@ namespace Win.Bodega
             ub = bindingNavigatorPositionItem.Text;
             ubicacionTextBox.Text = ub;
  
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var producto = (Producto)listaProductosBindingSource.Current;
-
-            if (producto != null)
-            {
-                openFileDialog1.ShowDialog();
-                var archivo = openFileDialog1.FileName;
-
-                if (archivo != "")
-                {
-                    var fileInfo = new FileInfo(archivo);
-                    var fileStream = fileInfo.OpenRead();
-                    fotoPictureBox.Image = Image.FromStream(fileStream);
-                }
-
-            }   
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            fotoPictureBox.Image = null;
         }
 
         private void Eliminar(int id)
@@ -171,8 +147,8 @@ namespace Win.Bodega
             existenciaTextBox.Enabled = valor;
             ubicacionTextBox.Enabled = valor;
             activoCheckBox.Enabled = valor;
-            button2.Enabled = valor;
-            button3.Enabled = valor;
+            metroButton1.Enabled = valor;
+            metroButton2.Enabled = valor;
         }
         
 
@@ -201,6 +177,30 @@ namespace Win.Bodega
         {
             listaProductosBindingSource.DataSource = _productos.ActualizarProductos();
             listaProductosBindingSource.ResetBindings(false);
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            var producto = (Producto)listaProductosBindingSource.Current;
+
+            if (producto != null)
+            {
+                openFileDialog1.ShowDialog();
+                var archivo = openFileDialog1.FileName;
+
+                if (archivo != "")
+                {
+                    var fileInfo = new FileInfo(archivo);
+                    var fileStream = fileInfo.OpenRead();
+                    fotoPictureBox.Image = Image.FromStream(fileStream);
+                }
+
+            }
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            fotoPictureBox.Image = null;
         }
     }
 }

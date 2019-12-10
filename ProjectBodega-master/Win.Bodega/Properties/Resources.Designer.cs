@@ -83,6 +83,16 @@ namespace Win.Bodega.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _038 {
+            get {
+                object obj = ResourceManager.GetObject("038", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _044 {
             get {
                 object obj = ResourceManager.GetObject("044", resourceCulture);

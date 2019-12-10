@@ -219,7 +219,7 @@
             this.PanelContedor.HorizontalScrollbarSize = 10;
             this.PanelContedor.Location = new System.Drawing.Point(182, 60);
             this.PanelContedor.Name = "PanelContedor";
-            this.PanelContedor.Size = new System.Drawing.Size(677, 585);
+            this.PanelContedor.Size = new System.Drawing.Size(689, 585);
             this.PanelContedor.TabIndex = 1;
             this.PanelContedor.VerticalScrollbarBarColor = true;
             this.PanelContedor.VerticalScrollbarHighlightOnWheel = false;
@@ -233,7 +233,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(553, 33);
+            this.metroPanel3.Location = new System.Drawing.Point(565, 33);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(303, 21);
             this.metroPanel3.TabIndex = 4;
@@ -284,11 +284,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Revue", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.label1.Location = new System.Drawing.Point(60, 6);
+            this.label1.Location = new System.Drawing.Point(60, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 37);
+            this.label1.Size = new System.Drawing.Size(135, 38);
             this.label1.TabIndex = 4;
             this.label1.Text = "Bodega";
             this.label1.Click += new System.EventHandler(this.metroPanel4_Click);
@@ -309,13 +309,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 665);
+            this.ClientSize = new System.Drawing.Size(891, 665);
             this.Controls.Add(this.metroPanel4);
             this.Controls.Add(this.metroPanel3);
             this.Controls.Add(this.PanelContedor);
             this.Controls.Add(this.metroPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(879, 665);
+            this.MinimumSize = new System.Drawing.Size(891, 665);
             this.Name = "MetroFormMain";
             this.Text = "Bodega";
             this.Load += new System.EventHandler(this.MetroFormMain_Load);
